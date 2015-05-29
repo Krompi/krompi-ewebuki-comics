@@ -1,0 +1,12 @@
+.fs-window {
+    width: 300px;
+    height: 500px;
+    margin: 20px 0 0 400px;
+    position: relative;
+    background: rgba(0,0,0,0.1);
+    overflow: hidden;
+    
+    .fs-item {
+        transition: width 0.5s ease; 
+    }
+}
