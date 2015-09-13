@@ -206,6 +206,8 @@
 #        include $pathvars["moduleroot"]."custom/leer.inc.php"; # einfaches modul
 #    }
 
+
+
 #    // custom: modul beispiel "my" eweitert
 #    if (  ( $environment["ebene"] == "/dir" && $environment["kategorie"] == "my" )
 #       || ( $environment["ebene"] == "/dir/my" ))
@@ -213,6 +215,30 @@
 #        include $pathvars["moduleroot"]."custom/leer.cfg.php";
 #        include $pathvars["moduleroot"]."custom/leer-ctrl.inc.php"; # erweitertes modul
 #    }
+
+    include $pathvars["moduleroot"]."custom/_global.cfg.php";
+    
+    
+    // custom: modul beispiel "my" eweitert
+    if ( $environment["ebene"]."/".$environment["kategorie"] == "/index" )
+    {
+        include $pathvars["moduleroot"]."custom/startseite.cfg.php";
+        include $pathvars["moduleroot"]."custom/startseite.inc.php"; # erweitertes modul
+    }
+    
+    // Hefte
+    if ( strstr($environment["ebene"]."/".$environment["kategorie"], "/issue") )
+    {
+        include $pathvars["moduleroot"]."custom/issue.cfg.php";
+        include $pathvars["moduleroot"]."custom/issue-ctrl.inc.php"; # erweitertes modul
+    }
+    
+    // API
+    if ( strstr($environment["ebene"]."/".$environment["kategorie"], "/api/json") )
+    {
+        include $pathvars["moduleroot"]."custom/api.cfg.php";
+        include $pathvars["moduleroot"]."custom/api.inc.php"; # erweitertes modul
+    }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ?>

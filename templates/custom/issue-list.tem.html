@@ -1,0 +1,49 @@
+        <!--##begin-->
+
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+        <div class="jumbotron">
+            <div class="container">
+                <h1>Heft-Übersicht</h1>
+            </div>
+        </div>
+
+        <div class="container">
+            <!-- Example row of columns -->
+            <div class="row">
+                
+                <div class="col-md-12">
+                    
+                    <ul class="list-nested">
+                      <!--##loop-publisher-->
+                        <li class="list-head">
+                            <div class="list-label toggle-list" data-value="!{id}" data-type="publisher">
+                                <span class="fa fa-caret-right list-toggle-marker"></span>
+                                !{name}
+                                <a class="edit-item" href="!{add_issue}"></a>
+                                <a class="add-item" href="!{add_issue}"></a>
+                            </div>
+                        </li>
+                      <!--##cont-->
+                    </ul>
+          
+                
+          
+          
+                </div>
+            </div>
+
+            <hr>
+      
+
+        </div> <!-- /container -->
+          
+        <script type="text/javascript">
+            
+            $( document ).ready(function() {
+                
+                
+                
+            })
+            
+        </script>
+<!--##end-->

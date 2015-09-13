@@ -49,7 +49,7 @@
     $access["0"]["db"] = "eWeBuKi";
     $access["0"]["user"] = "changeme";
     $access["0"]["pass"] = "changeme";
-    
+
     if (file_exists(dirname(__FILE__)."/site.custom.cfg.php") ) {
         include dirname(__FILE__)."/site.custom.cfg.php";
     }
@@ -78,7 +78,7 @@
     $specialvars["newbrblock"] = ""; // \r\n -> </ br> verhindern (zur zeit nur DIV m�glich)
     $specialvars["w3c"] = "strict";
     $specialvars["404"]["enable"] = -1; // 404 fehlermeldungen aktivieren
-    $specialvars["404"]["nochk"]["ebene"] = array("/cms","/admin"); // ebenen ohne 404 meldung
+    $specialvars["404"]["nochk"]["ebene"] = array("/cms","/admin","api","/issue"); // ebenen ohne 404 meldung
     $specialvars["404"]["nochk"]["kategorie"] = array("index","view"); // kategorien ohne 404 meldung
     $specialvars["security"]["enable"] = 0; // spezial recht auf content bearbeitung
     $specialvars["security"]["nochk"] = array("auth.logout","index","auth"); // templates die nur admin aendern darf
@@ -90,7 +90,7 @@
 
     // debugging
     $debugging["error_display"] = "On";
-    #$debugging["error_display"] = "Off";
+    // $debugging["error_display"] = "Off";
 
     $debugging["error_reporting"] = E_ALL; // development
     $debugging["error_reporting"] = E_ALL & ~(E_DEPRECATED); // development, no notices

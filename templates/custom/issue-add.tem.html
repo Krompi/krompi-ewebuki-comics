@@ -1,0 +1,107 @@
+        <!--##begin-->
+
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+        <div class="jumbotron">
+            <div class="container">
+                <h1>Heft-Übersicht</h1>
+            </div>
+        </div>
+
+        <div class="container">
+            <!-- Example row of columns -->
+            <div class="row">
+
+                <div class="col-md-12">
+                    <form class="" method="post" action="!#ausgaben_form_aktion">
+
+                        <!--##hide-form_error-->
+                        <div class="form-group col-sm-12">
+                            <ul>
+                                <!--##loop-form_error-->
+                                <li>!{text}</li>
+                                <!--##cont-->
+                            </ul>
+                        </div>
+                        <!--##show-->
+
+                        <div class="form-group col-sm-12">
+                            <label for="publisher" class="control-label">Verlag</label>
+                            !#element_publisher
+                        </div>
+
+                        <div class="form-group col-sm-12">
+                            <label for="issue_title" class="control-label">Titel</label>
+                            !#element_issue_title
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            <label for="issue_number" class="control-label">Nummer</label>
+                            !#element_issue_number
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            <label for="issue_number_range" class="control-label">bis</label>
+                            !#element_issue_number_range
+                        </div>
+
+                        <div class="form-group col-sm-12">
+                            <label for="issue_subtitle" class="control-label">Untertitel</label>
+                            !#element_issue_subtitle
+                        </div>
+
+                        <div class="form-group col-sm-12">
+                            <button type="submit" name="send" value="send" class="btn btn-default">Speichern</button>
+                        </div>
+
+                    </form>
+
+                </div>
+
+
+
+            </div>
+
+            <hr>
+
+
+        </div> <!-- /container -->
+
+        <script type="text/javascript">
+        // /api/json/publisher.html?q=%QUERY'
+
+
+
+                    $( ".publisher-ac" ).autocomplete({
+                        source: function( request, response ) {
+                            $.getJSON(
+                                '/api/json/publisher.html',
+                                {
+                                    q: request.term
+                                },
+                                response
+                            );
+                        },
+                        minLength: 2,
+                        select: function( event, ui ) {
+                            $('[name="publisher_id"]').val(ui.item.id);
+                        }
+                    });
+
+                    $( ".title-ac" ).autocomplete({
+                        source: function( request, response ) {
+                            $.getJSON(
+                                '/api/json/title.html',
+                                {
+                                    q: request.term
+                                },
+                                response
+                            );
+                        },
+                        minLength: 2,
+                        select: function( event, ui ) {
+                            // $('[name="publisher_id"]').val(ui.item.id);
+                        }
+                    });
+
+        </script>
+<!--##end-->
