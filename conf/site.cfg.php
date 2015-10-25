@@ -90,7 +90,7 @@
 
     // debugging
     $debugging["error_display"] = "On";
-    // $debugging["error_display"] = "Off";
+    $debugging["error_display"] = "Off";
 
     $debugging["error_reporting"] = E_ALL; // development
     $debugging["error_reporting"] = E_ALL & ~(E_DEPRECATED); // development, no notices

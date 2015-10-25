@@ -1,1 +1,1 @@
-.fs-window{width:300px;height:500px;margin:20px 0 0 400px;position:relative;background:rgba(0,0,0,.1)}.fs-window .fs-item{transition:width .5s ease}
+.fs-window{width:300px;height:500px;margin:20px 0 0 400px;position:relative;background:rgba(0,0,0,.1);overflow:hidden}.fs-window .fs-item{transition:width .5s ease}
