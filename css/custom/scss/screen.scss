@@ -1,11 +1,25 @@
 // Bootstrap
 @import "bootstrap";
+@import "paper/bootswatch";
 // Font-Awesome
 @import "font-awesome";
 
 
 
 @import "form-slider";
+
+.form-card {
+    background-color: $well-bg;
+    border-radius: $border-radius-base;
+    //box-shadow: 5px 5px 20px 0px rgba(115,115,115,0.35);
+    @include box-shadow(1px 1px 4px rgba(0,0,0,.4));
+    legend {
+        border-top-left-radius: $border-radius-base;
+        border-top-right-radius: $border-radius-base;
+        background: darken($well-bg, 10%);
+        padding: 4px 8px;
+    }
+}
 
 .ui-autocomplete {
     position: absolute;

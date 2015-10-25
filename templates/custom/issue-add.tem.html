@@ -1,57 +1,72 @@
         <!--##begin-->
 
         <!-- Main jumbotron for a primary marketing message or call to action -->
-        <div class="jumbotron">
-            <div class="container">
-                <h1>Heft-Übersicht</h1>
-            </div>
-        </div>
 
         <div class="container">
             <!-- Example row of columns -->
             <div class="row">
 
-                <div class="col-md-12">
-                    <form class="" method="post" action="!#ausgaben_form_aktion">
+                <div class="page-header">
+                    <h1>Heft-Übersicht <small>Neue Ausgaben eingeben</small></h1>
+                </div>
 
-                        <!--##hide-form_error-->
-                        <div class="form-group col-sm-12">
-                            <ul>
-                                <!--##loop-form_error-->
-                                <li>!{text}</li>
-                                <!--##cont-->
-                            </ul>
-                        </div>
-                        <!--##show-->
+                <div class="col-md-12 well1">
+                    <form class="form-horizontal form-card" method="post" action="!#ausgaben_form_aktion">
 
-                        <div class="form-group col-sm-12">
-                            <label for="publisher" class="control-label">Verlag</label>
-                            !#element_publisher
-                        </div>
+                        <fieldset class="well1">
 
-                        <div class="form-group col-sm-12">
-                            <label for="issue_title" class="control-label">Titel</label>
-                            !#element_issue_title
-                        </div>
+                            <legend>Grunddaten</legend>
 
-                        <div class="form-group col-sm-6">
-                            <label for="issue_number" class="control-label">Nummer</label>
-                            !#element_issue_number
-                        </div>
+                            <!--##hide-form_error-->
+                            <div class="form-group col-sm-12">
+                                <ul>
+                                    <!--##loop-form_error-->
+                                    <li>!{text}</li>
+                                    <!--##cont-->
+                                </ul>
+                            </div>
+                            <!--##show-->
 
-                        <div class="form-group col-sm-6">
-                            <label for="issue_number_range" class="control-label">bis</label>
-                            !#element_issue_number_range
-                        </div>
+                            <div class="form-group">
+                                <label for="publisher" class="col-lg-2 control-label">Verlag</label>
+                                <div class="col-lg-10">
+                                    !#element_publisher
+                                </div>
+                            </div>
 
-                        <div class="form-group col-sm-12">
-                            <label for="issue_subtitle" class="control-label">Untertitel</label>
-                            !#element_issue_subtitle
-                        </div>
+                            <div class="form-group">
+                                <label for="issue_title" class="col-lg-2 control-label">Titel</label>
+                                <div class="col-lg-10">
+                                    !#element_issue_title
+                                </div>
+                            </div>
 
-                        <div class="form-group col-sm-12">
-                            <button type="submit" name="send" value="send" class="btn btn-default">Speichern</button>
-                        </div>
+                            <div class="form-group">
+                                <label for="issue_number" class="col-lg-2 control-label">Nummer</label>
+                                <div class="col-lg-4">
+                                    !#element_issue_number
+                                </div>
+                                <label for="issue_number_range" class="col-lg-2 control-label">bis</label>
+                                <div class="col-lg-4">
+                                    !#element_issue_number_range
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="issue_subtitle" class="col-lg-2 control-label">Untertitel</label>
+                                <div class="col-lg-10">
+                                    !#element_issue_subtitle
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-lg-10 col-lg-offset-2">
+                                    <button type="submit" name="send" value="send" class="btn btn-primary">Speichern</button>
+                                    <button type="reset" class="btn btn-default">Abbrechen</button>
+                                </div>
+                            </div>
+
+                        </fieldset>
 
                     </form>
 
