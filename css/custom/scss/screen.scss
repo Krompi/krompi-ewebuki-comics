@@ -4,20 +4,18 @@
 // Font-Awesome
 @import "font-awesome";
 
-
-
 @import "form-slider";
 
 .form-card {
     background-color: $well-bg;
     border-radius: $border-radius-base;
     //box-shadow: 5px 5px 20px 0px rgba(115,115,115,0.35);
-    @include box-shadow(1px 1px 4px rgba(0,0,0,.4));
+    @include box-shadow(1px 1px 4px rgba(0, 0, 0, .4));
     legend {
+        padding: 4px 8px;
         border-top-left-radius: $border-radius-base;
         border-top-right-radius: $border-radius-base;
         background: darken($well-bg, 10%);
-        padding: 4px 8px;
     }
 }
 
@@ -26,40 +24,49 @@
     top: 100%;
     left: 0;
     z-index: 1000;
-    float: left;
     display: none;
     min-width: 160px;
-    _width: 160px;
-    padding: 4px 0;
-    margin: 2px 0 0 0;
+    padding: 0;
+    margin: 0;
     list-style: none;
-    background-color: #ffffff;
-    border: 1px solid $input-border;
-    border-radius: $input-border-radius;
-    @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
-    -webkit-background-clip: padding-box;
-    -moz-background-clip: padding;
-    background-clip: padding-box;
-    *border-right-width: 2px;
-    *border-bottom-width: 2px;
-
-    .ui-menu-item /*> a.ui-corner-all*/ {
+    background-color: $dropdown-bg;
+//    border: 1px solid $dropdown-border;
+    border-bottom-right-radius: $input-border-radius;
+    border-bottom-left-radius: $input-border-radius;
+    @include box-shadow(1px 1px 4px rgba(0, 0, 0, .4));
+//    -webkit-background-clip: padding-box;
+//    -moz-background-clip: padding;
+//    background-clip: padding-box;
+//    *border-right-width: 2px;
+//    *border-bottom-width: 2px;
+    .ui-menu-item {
         display: block;
         padding: $padding-base-vertical $padding-base-horizontal;
         clear: both;
         font-weight: normal;
         line-height: $line-height-base;
-        color: #555555;
+        color: $dropdown-link-color;
         white-space: nowrap;
-
-        &.ui-state-hover, &.ui-state-focus, &.ui-state-active {
-          color: #ffffff;
-          text-decoration: none;
-          background-color: #0088cc;
-          border-radius: 0px;
-          -webkit-border-radius: 0px;
-          -moz-border-radius: 0px;
-          background-image: none;
+        border-bottom: 1px solid $dropdown-divider-bg;
+        &:last-child {
+            border-bottom-width: 0;
+        }
+        &.ui-state-hover,
+        &.ui-state-focus,
+        &.ui-state-active {
+            color: $dropdown-link-hover-color;
+            text-decoration: none;
+//            background-color: #0088cc;
+            background-color: $dropdown-link-hover-bg;
+//            border-radius: 0px;
+//            -webkit-border-radius: 0px;
+//            -moz-border-radius: 0px;
+            background-image: none;
         }
     }
+}
+.ui-helper-hidden-accessible {
+    visibility: hidden;
+    position: absolute;
+    height: 0;
 }
