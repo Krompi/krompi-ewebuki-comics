@@ -10321,6 +10321,9 @@ input[type="checkbox"]:disabled:checked:after,
   border-top-right-radius: 2px;
   background: gainsboro;
 }
+.form-card .form-group {
+  padding: 0 15px;
+}
 
 .ui-autocomplete {
   position: absolute;

@@ -17,6 +17,9 @@
         border-top-right-radius: $border-radius-base;
         background: darken($well-bg, 10%);
     }
+    .form-group {
+        padding: 0 $padding-base-horizontal;
+    }
 }
 
 .ui-autocomplete {

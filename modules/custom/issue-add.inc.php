@@ -47,17 +47,35 @@ echo "<pre>";
 echo print_r($_POST,true)."\n";
     if ( $cfg["issue"]["right"] == "" || priv_check('', $cfg["issue"]["right"]) ) {
     #if ( $cfg["issue"]["right"] == "" || $rechte[$cfg["issue"]["right"]] == -1 ) {
+        
+        $form_values = array();
 
         // page basics
         // ***
+        if ( is_numeric($_GET["publisher"]) ) {
+            $sql = "SELECT * 
+                      FROM ".$cfg["comic_db"]["publisher"]["entries"]." 
+                    WHERE ".$cfg["comic_db"]["publisher"]["key"]."=".(int) $_GET["publisher"];
+            $result  = $db -> query($sql);
+            if ( $db->num_rows($result) == 1 ) {
+                $data = $db -> fetch_array($result,1);
+                $form_values["publisher"] = $data[$cfg["comic_db"]["publisher"]["name"]];
+            }
+        }
 
         #if ( count($_POST) == 0 ) {
         #} else {
-            $form_values = $_POST;
+            $form_values = array_merge($form_values, $_POST);
         #}
+echo print_r($form_values,true)."\n";
 
         // form options holen
         $form_options = form_options("issue-edit");
+echo print_r($form_options,true)."\n";
+        foreach ( $form_options as $key => $value ) {
+            $ausgaben["class_".$key] = "";
+            $ausgaben["text_".$key]  = "";
+        }
 // echo "<pre>".print_r($form_options,true)."</pre>";
 
         // form elememte bauen
@@ -74,6 +92,7 @@ echo print_r($_POST,true)."\n";
         $element["extension2"] = null;
 
         krsort($element);
+        
 
         // +++
         // page basics
@@ -122,7 +141,8 @@ echo $ausgaben["form_error"]."\n";
 
             // form eigaben pr�fen
             form_errors( $form_options, $_POST );
-            echo $ausgaben["form_error"]."\n";
+echo $ausgaben["form_error"]."\n";
+echo print_r($dataloop["form_error"],true);
 
             // evtl. zusaetzliche datensatz anlegen
             if ( !isset($ausgaben["form_error"]) ) {
@@ -263,6 +283,12 @@ exit;
             // wenn es keine fehlermeldungen gab, die uri $header laden
             if ( !isset($ausgaben["form_error"]) ) {
                 // header("Location: ".$header);
+            } else {
+                foreach ( $dataloop["form_error"] as $key => $value ) {
+                    $ausgaben["class_".$key] = "has-error";
+                    $ausgaben["text_".$key]  = $value["text"];
+                    
+                }
             }
         }
     } else {
